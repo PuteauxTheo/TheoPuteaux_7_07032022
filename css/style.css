@@ -23,3 +23,22 @@ header{
 }
 
 /* --------------------- MAIN ------------------- */
+
+.form-search{
+    display: flex;
+    justify-content: center;
+    border-radius: 5px;
+}
+.search-input{
+    height: 50px;
+    min-width: 800px;
+    background-color: #E7E7E7;
+    border: none;
+}
+.form-search button{
+    background-color: #E7E7E7;
+    border: none;
+}
+.fa-search{
+    font-size: 23px;
+}
