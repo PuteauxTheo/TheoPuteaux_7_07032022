@@ -1,9 +1,7 @@
 const ingredients =  document.querySelector(".sort-ingredients");
 const ingredientsData = document.querySelector(".sort-ingredients-data");
 
-// ingredients.addEventListener("click", function(){
-//     addDataIngredients();
-// })
+
 
 function addDataIngredients(){
     
