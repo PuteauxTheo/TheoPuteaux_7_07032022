@@ -1,6 +1,6 @@
 body{
     max-width: 1440px;
-    margin: auto;
+    margin: 0 auto;
 }
 
 
@@ -24,10 +24,13 @@ header{
 
 /* --------------------- MAIN ------------------- */
 
+            /*-------- SEARCH BAR ---------*/
+
 .form-search{
     display: flex;
     justify-content: center;
     border-radius: 5px;
+    margin-bottom: 20px;
 }
 .search-input{
     height: 50px;
@@ -42,3 +45,56 @@ header{
 .fa-search{
     font-size: 23px;
 }
+
+            /*---------- SORT -----------*/
+
+.sort{
+    display: flex;
+    flex-direction: row;
+    column-gap: 20px;
+}
+
+.sort-title{
+    margin: 0;
+    padding: 25px;
+    font-family: "Lato";
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    color: #fff;
+}
+.sort-ingredients{
+    display: flex;
+    background-color: #3282f2;
+    border-radius: 5px;
+    flex-direction: row;
+}
+
+.sort-appareils{
+    display: flex;
+    background-color: #68d9a4;
+    border-radius: 5px;
+    flex-direction: row;
+}
+
+.sort-ustensiles{
+    display: flex;
+    background-color: #ed6454;
+    border-radius: 5px;
+    flex-direction: row;
+}
+
+.arrows-icon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.fa-angle-down{
+    margin: 0 10px;
+    font-size: 25px;
+    color: #fff;
+}
+
+
+
