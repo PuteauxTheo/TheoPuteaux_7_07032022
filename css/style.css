@@ -28,13 +28,12 @@ header{
 
 .form-search{
     display: flex;
-    justify-content: center;
     border-radius: 5px;
     margin-bottom: 20px;
 }
 .search-input{
     height: 50px;
-    min-width: 800px;
+    min-width: 1200px;
     background-color: #E7E7E7;
     border: none;
 }
@@ -45,7 +44,27 @@ header{
 .fa-search{
     font-size: 23px;
 }
+            /*---------- TAG ------------*/
 
+.tag{
+    margin: 10px 0px;
+}
+
+.tag-ingredients{
+    display: flex;
+    justify-content: center;
+    background: #3282f2;
+    border-radius: 5px;
+    width: 100px;
+    padding: 5px;
+    color: #fff;
+    font-family: "Lato";
+    font-size: 14px;
+}
+
+.tag-ingredients img{
+    margin-left: 10px;
+}
             /*---------- SORT -----------*/
 
 .sort{
