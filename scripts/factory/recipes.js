@@ -2,7 +2,7 @@ function recipesFactory(data){
 
     const { id, name, servings, ingredients, time, description, appliance, ustensils} = data
     console.log(" data id "+name)
-    const timer = `assets/clocktimer.png`;
+    const timerPATH = `assets/clocktimer.png`;
 
     function getRecipesDOM(){
         const article = document.createElement('article');
@@ -17,8 +17,15 @@ function recipesFactory(data){
         const titleRecipe = document.createElement('h2');
         titleRecipe.textContent = name;
         const timeRecipe = document.createElement('div');
-        timeRecipe.setAttribute("img",timer)
-        timeRecipe.textContent = time+" min";
+        timeRecipe.className = " recipes-timer";
+        const timer = document.createElement('div');
+        const timerIMG = document.createElement('img')
+        const timerText = document.createElement('p')
+        timerIMG.setAttribute("src",timerPATH)
+        timerText.textContent = time+" min";
+        timer.appendChild(timerIMG)
+        timeRecipe.insertAdjacentElement('afterbegin',timer);
+        timeRecipe.appendChild(timerText)
         divTitle.appendChild(titleRecipe);
         divTitle.appendChild(timeRecipe);
         divData.appendChild(divTitle);
