@@ -120,15 +120,49 @@ header{
 #recipes {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    margin-top: 25px;
 }
 
 #recipes article{
     height: 380px;
     background: #68d9a4;
+    border-radius: 5px;
 }
 
 .img-recipes{
     height: 180px;
     background-color: #C7BEBE;
+    border-radius: 5px 5px 0px 0px;
 }
+
+.recipes-title{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.recipes-title h2{
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+}
+
+.recipes-timer{
+    display: flex;
+    align-items: center;
+}
+
+.recipes-title div p{
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+}
+
+.recipes-content{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
 
