@@ -115,5 +115,20 @@ header{
     color: #fff;
 }
 
+            /*---------- RECIPES -----------*/
 
+#recipes {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+#recipes article{
+    height: 380px;
+    background: #68d9a4;
+}
+
+.img-recipes{
+    height: 180px;
+    background-color: #C7BEBE;
+}
 
