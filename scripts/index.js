@@ -23,14 +23,25 @@ const tabIngredientsFiltered = tabIngredients.filter(function(ele , pos){
 
 console.log("tab filtrer a la fin "+tabIngredientsFiltered)
 
-function ingredientSortDOM(){
+// function ingredientSortDOM(){
 
-    for(let j=0; j < tabIngredientsFiltered.length; j++){
-        const div = document.createElement('div')
-        div.textContent = tabIngredientsFiltered[j];
-        ingredientsData.appendChild(div)
-    }
+//     for(let j=0; j < tabIngredientsFiltered.length; j++){
+//         const div = document.createElement('div')
+//         div.textContent = tabIngredientsFiltered[j];
+//         ingredientsData.appendChild(div)
+//     }
+// }
+
+// ingredientSortDOM();
+
+function displayRecipes(dataRecipes){
+    const divRecipes = document.getElementById('recipes');
+
+    const a = recipesFactory(dataRecipes)
+    const recipesDOM = a.getRecipesDOM();
+    divRecipes.appendChild(recipesDOM);
 }
 
-ingredientSortDOM();
+console.log(" test "+recipes[0])
+displayRecipes(recipes[0]);
 
