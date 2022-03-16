@@ -37,23 +37,16 @@ console.log("tab filtrer a la fin "+tabIngredientsFiltered)
 function displayRecipes(dataRecipes){
     const divRecipes = document.getElementById('recipes');
 
-    const a = recipesFactory(dataRecipes)
-    const recipesDOM = a.getRecipesDOM();
-    divRecipes.appendChild(recipesDOM);
+    dataRecipes.forEach( el => {
+        const a = recipesFactory(el)
+        const recipesDOM = a.getRecipesDOM();
+        divRecipes.appendChild(recipesDOM);
+    })
+    
+
+   
 }
 
 console.log(" test "+recipes[0])
-displayRecipes(recipes[0]);
+displayRecipes(recipes);
 
-//for(let i=0; i < recipes[0].ingredients[0].length; i++){
-    const a = recipes[0].ingredients[0].ingredient
-    const b = recipes[0].ingredients[0].quantity
-    const c = recipes[0].ingredients[0].unit
-
-    console.log(" a = "+a+"  b = "+b+"  c = "+c)
-    console.log(" test concat "+recipes[0].ingredients[0].join('-'));
-
-    //}
-
-
-console.log(" test recipes[0] ingredients"+recipes[0].ingredients[0])
