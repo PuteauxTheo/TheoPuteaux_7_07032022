@@ -121,6 +121,7 @@ header{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     margin-top: 25px;
+    gap: 50px;
 }
 
 #recipes article{
@@ -169,4 +170,17 @@ header{
     grid-template-columns: 1fr 1fr;
 }
 
+.content-ingredients{
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+}
+
+.content-description{
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+}
 
