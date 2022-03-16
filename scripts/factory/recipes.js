@@ -23,9 +23,9 @@ function recipesFactory(data){
         const timerText = document.createElement('p')
         timerIMG.setAttribute("src",timerPATH)
         timerText.textContent = time+" min";
-        timer.appendChild(timerIMG)
-        timeRecipe.insertAdjacentElement('afterbegin',timer);
-        timeRecipe.appendChild(timerText)
+        timer.appendChild(timerIMG);
+        timeRecipe.appendChild(timer);
+        timeRecipe.appendChild(timerText);
         divTitle.appendChild(titleRecipe);
         divTitle.appendChild(timeRecipe);
         divData.appendChild(divTitle);
