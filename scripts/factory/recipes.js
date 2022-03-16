@@ -50,3 +50,14 @@ function recipesFactory(data){
 
     return { id, name, servings, ingredients, time, description, appliance, ustensils, getRecipesDOM}
 }
+
+
+function getIngredientsInfo(data2){
+
+    console.log("test data "+data)
+    console.log("test data.id "+data.id);
+    console.log("test data.ingredeints "+data.ingredients);
+
+}
+
+//getIngredientsInfo(recipes[0].ingredients[0]);
