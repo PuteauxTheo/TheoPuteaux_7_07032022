@@ -125,7 +125,7 @@ header{
 
 #recipes article{
     height: 380px;
-    background: #68d9a4;
+    background: #e7e7e7;
     border-radius: 5px;
 }
 
@@ -135,6 +135,9 @@ header{
     border-radius: 5px 5px 0px 0px;
 }
 
+.recipes-data{
+    margin: 20px;
+}
 .recipes-title{
     display: flex;
     flex-direction: row;
@@ -158,6 +161,7 @@ header{
     font-style: normal;
     font-weight: 700;
     font-size: 18px;
+    margin-left: 5px;
 }
 
 .recipes-content{
