@@ -33,8 +33,12 @@ function recipesFactory(data){
         divContent.className = "recipes-content";
         divData.appendChild(divContent);
         const divIngredients = document.createElement('div');
-        divIngredients.textContent = ingredients;
+        divIngredients.className = "content-ingredients";
+        ingredients.forEach( ing => {
+            divIngredients.appendChild(getIngredientsInfo(ing));
+        })
         const divDescription = document.createElement('div');
+        divDescription.className = "content-description";
         divDescription.textContent = description;
         divContent.appendChild(divIngredients);
         divContent.appendChild(divDescription);
@@ -52,12 +56,27 @@ function recipesFactory(data){
 }
 
 
-function getIngredientsInfo(data2){
+// getIngredientsInfo permet de mettre dans une div un ingredients complet avec sa quantite et son unite  
+function getIngredientsInfo(el){    
 
-    console.log("test data "+data)
-    console.log("test data.id "+data.id);
-    console.log("test data.ingredeints "+data.ingredients);
+    let ingredient = ""
+    let quantity = ""
+    let unit = ""
+    if(el.ingredient !== undefined){
+        ingredient = el.ingredient
+    }
+    if(el.quantity !== undefined) {
+        quantity = el.quantity
+    }
+    
+    if(el.unit !== undefined) {
+        unit = el.unit
+    }
 
-}
+    const div = document.createElement('div')
+    div.textContent = ingredient+" : "+quantity+" "+unit
 
-//getIngredientsInfo(recipes[0].ingredients[0]);
+    return (div);  
+    
+};
+
