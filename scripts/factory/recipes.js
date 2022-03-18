@@ -1,7 +1,7 @@
 function recipesFactory(data){
 
-    const { id, name, servings, ingredients, time, description, appliance, ustensils} = data
-    console.log(" data id "+name)
+    const { id, name, servings, ingredients, time, description, appliance, ustensils} = data ;
+    console.log(" data id "+name);
     const timerPATH = `assets/clocktimer.png`;
 
     function getRecipesDOM(){
@@ -43,11 +43,6 @@ function recipesFactory(data){
         divContent.appendChild(divIngredients);
         divContent.appendChild(divDescription);
         divData.appendChild(divContent);
-
-
-        
-
-
 
         return (article);
     }
