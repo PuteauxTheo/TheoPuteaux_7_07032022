@@ -160,11 +160,9 @@ searchInput.addEventListener('input', e => {
         displayRecipes(recipeFilter);
         //addTag(IngredientFilter);
     }else{
-        addTag (Ingredient);
+        addTag(Ingredient,Appareil,Ustensil);
         displayRecipes(recipes);
     }
-    //addTag(Appareils)
-    //addTag(Ustensils)
 })
 
 function displayRecipes(dataRecipes){
