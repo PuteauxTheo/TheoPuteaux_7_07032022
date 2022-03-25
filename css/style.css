@@ -3,6 +3,9 @@ body{
     margin: 0 auto;
 }
 
+.hide{
+    display: none;
+}
 
 /* -------------------- HEADER ------------------ */
 header{
@@ -82,25 +85,92 @@ header{
     font-size: 18px;
     color: #fff;
 }
+
+/* SORT INGREDIENTS */
 .sort-ingredients{
-    display: flex;
+    display: inline-block;
     background-color: #3282f2;
     border-radius: 5px;
     flex-direction: row;
+    position: relative;
 }
 
-.sort-appareils{
+.sort-ingredients-close{
     display: flex;
+    flex-direction: row;
+}
+
+.sort-ingredients-open{
+    display: none;
+    flex-direction: row;
+    padding: 25px;
+    width: 600px;
+}
+
+.sort-ingredients-data{
+    display: none;
+    grid-template-columns: repeat(3, 1fr);    
+    background-color: #3282f2;
+    width: 650px;
+    position: absolute;
+}
+
+/* SORT APPAREILS */
+.sort-appareils{
+    display: inline-block;
     background-color: #68d9a4;
     border-radius: 5px;
     flex-direction: row;
+    position: relative;
 }
 
-.sort-ustensiles{
+.sort-appareils-close{
     display: flex;
+    flex-direction: row;
+}
+
+.sort-appareils-open{
+    display: none;
+    flex-direction: row;
+    padding: 25px;
+    width: 600px;
+}
+
+.sort-appareils-data{
+    display: none;
+    grid-template-columns: repeat(3, 1fr);    
+    background-color: #68d9a4;
+    width: 650px;
+    position: absolute;
+}
+
+/* SORT USTENSILES */
+.sort-ustensiles{
+    display: inline-block;
     background-color: #ed6454;
     border-radius: 5px;
     flex-direction: row;
+    position: relative;
+}
+
+.sort-ustensiles-close{
+    display: flex;
+    flex-direction: row;
+}
+
+.sort-ustensiles-open{
+    display: none;
+    flex-direction: row;
+    padding: 25px;
+    width: 600px;
+}
+
+.sort-ustensiles-data{
+    display: none;
+    grid-template-columns: repeat(3, 1fr);    
+    background-color: #ed6454;
+    width: 650px;
+    position: absolute;
 }
 
 .arrows-icon{
@@ -109,11 +179,13 @@ header{
     align-items: center;
 }
 
-.fa-angle-down{
+.fa-angle-down, .fa-angle-up{
     margin: 0 10px;
     font-size: 25px;
     color: #fff;
 }
+
+
 
             /*---------- RECIPES -----------*/
 
@@ -168,6 +240,7 @@ header{
 .recipes-content{
     display: grid;
     grid-template-columns: 1fr 1fr;
+    height: 105px;
 }
 
 .content-ingredients{
@@ -182,5 +255,8 @@ header{
     font-style: normal;
     font-weight: 400;
     font-size: 12px;
+    overflow: hidden;
 }
+
+
 
