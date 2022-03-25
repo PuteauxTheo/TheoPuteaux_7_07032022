@@ -1,7 +1,6 @@
 function recipesFactory(data){
 
     const { id, name, servings, ingredients, time, description, appliance, ustensils} = data ;
-    console.log(" data id "+name);
     const timerPATH = `assets/clocktimer.png`;
 
     function getRecipesDOM(){
@@ -61,7 +60,7 @@ function getIngredientsInfo(el){
         ingredient = el.ingredient
     }
     if(el.quantity !== undefined) {
-        quantity = el.quantity
+        quantity = " : "+el.quantity
     }
     
     if(el.unit !== undefined) {
@@ -69,7 +68,7 @@ function getIngredientsInfo(el){
     }
 
     const div = document.createElement('div')
-    div.textContent = ingredient+" : "+quantity+" "+unit
+    div.textContent = ingredient+quantity+" "+unit
 
     return (div);  
     
