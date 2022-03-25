@@ -41,10 +41,7 @@ function displayRecipes(dataRecipes){
         const a = recipesFactory(el)
         const recipesDOM = a.getRecipesDOM();
         divRecipes.appendChild(recipesDOM);
-    })
-    
-
-   
+    })   
 }
 
 console.log(" test "+recipes[0])

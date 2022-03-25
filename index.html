@@ -27,39 +27,59 @@
             </div>
             <div class="sort">
                 <div class="sort-ingredients">
-                    <h2 class="sort-title">Ingredients</h2>
-                    <span class="arrows-icon">
-                        <i class="fa fa-angle-down"></i>
-                    </span>
+                    <div class="sort-ingredients-close">
+                        <h2 class="sort-title">Ingredients</h2>
+                        <span class="arrows-icon">
+                            <i class="fa fa-angle-down"></i>
+                        </span>
+                    </div>
+                    <div class="sort-ingredients-open">
+                        <input type="text" id="sort-search-ingredient" class="sort-search" placeholder=" Rechercher un ingrédient">
+                        <span class="arrows-icon">
+                            <i class="fa fa-angle-up"></i>
+                        </span>
+                    </div>
                     <div class="sort-ingredients-data">
                     </div>
-                    <!-- <i class="fa-solid fa-angle-up"></i> -->
-                    <!-- <input type="text" id="sort-search-ingredient" class="sort-search" placeholder=" Rechercher un ingrédient"> -->
+                   
                 </div>
                 <div class="sort-appareils">
-                    <h2 class="sort-title">Appareils</h2>
-                    <span class="arrows-icon">
-                        <i class="fa fa-angle-down"></i>
-                    </span>
-                    <div class="sort-appareils-data">
+                    <div class="sort-appareils-close">
+                        <h2 class="sort-title">Appareils</h2>
+                        <span class="arrows-icon">
+                            <i class="fa fa-angle-down"></i>
+                        </span>
                     </div>
-                    <!-- <i class="fa-solid fa-angle-up"></i> -->
-                    <!-- <input type="text" id="sort-search-appareil" class ="sort-search" placeholder=" Rechercher un appareil"> -->
+                    <div class="sort-appareils-open">
+                        <input type="text" id="sort-search-appreil" class="sort-search" placeholder=" Rechercher un appareil">
+                        <span class="arrows-icon">
+                            <i class="fa fa-angle-up"></i>
+                        </span>
+                    </div>
+                    <div class="sort-appareils-data">
+                    </div>                    
                 </div>
                 <div class="sort-ustensiles">
-                    <h2 class="sort-title">Ustensiles</h2>
-                    <span class="arrows-icon">
-                        <i class="fa fa-angle-down"></i>
-                    </span>
+                    <div class="sort-ustensiles-close">
+                        <h2 class="sort-title">Ustensiles</h2>
+                        <span class="arrows-icon">
+                            <i class="fa fa-angle-down"></i>
+                        </span>
+                    </div>
+                    <div class="sort-ustensiles-open">
+                        <input type="text" id="sort-search-ustensile" class="sort-search" placeholder=" Rechercher un ustensile">
+                        <span class="arrows-icon">
+                            <i class="fa fa-angle-up"></i>
+                        </span>
+                    </div>
                     <div class="sort-ustensiles-data">
                     </div>
-                    <!-- <i class="fa-solid fa-angle-up"></i> -->
-                    <!-- <input type="text" id="sort-search-ustensile" class="sort-search" placeholder=" Rechercher un ustensiles"> -->
                 </div>
             </div>
             <div id="recipes">
             </div>
         </main>
+        <script src="scripts/factory/tag.js"></script>
         <script src="scripts/factory/recipes.js"></script>
         <script src="scripts/recipes.js"></script>
         <script src="scripts/index.js"></script>
