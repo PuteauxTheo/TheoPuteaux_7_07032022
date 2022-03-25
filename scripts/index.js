@@ -156,12 +156,14 @@ searchInput.addEventListener('input', e => {
     if(value.length >= 3){
         const recipeFilter = recipes.filter(word => word.name.toLowerCase().includes(value) || word.description.toLowerCase().includes(value) /* || ingredients */);
         //const IngredientFilter = Ingredient.filter( word => word.toLowerCase().includes(value))
-        addTag(tabIngredient(recipeFilter),tabAppareil(recipeFilter),tabUstensil(recipeFilter));
         displayRecipes(recipeFilter);
+        addTag(tabIngredient(recipeFilter),tabAppareil(recipeFilter),tabUstensil(recipeFilter));
+        
         //addTag(IngredientFilter);
     }else{
-        addTag(Ingredient,Appareil,Ustensil);
         displayRecipes(recipes);
+        addTag(Ingredient,Appareil,Ustensil);
+
     }
 })
 
