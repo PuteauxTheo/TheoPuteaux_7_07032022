@@ -51,11 +51,15 @@ header{
 
 .tag{
     margin: 10px 0px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax( 100px, 1fr));
+    gap: 10px;
 }
 
-.tag-ingredients{
+.tag-ingredient{
     display: flex;
     justify-content: center;
+    align-items: center;
     background: #3282f2;
     border-radius: 5px;
     width: 100px;
@@ -65,8 +69,44 @@ header{
     font-size: 14px;
 }
 
-.tag-ingredients img{
-    margin-left: 10px;
+.tag-appareil{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #68d9a4;
+    border-radius: 5px;
+    width: 100px;
+    padding: 5px;
+    color: #fff;
+    font-family: "Lato";
+    font-size: 14px;
+}
+
+.tag-ustensil{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #ed6454;
+    border-radius: 5px;
+    width: 100px;
+    padding: 5px;
+    color: #fff;
+    font-family: "Lato";
+    font-size: 14px;
+}
+
+.tag-list{
+    padding: 10px 0px 5px 10px;
+    color: #FFFFFF;
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+}
+
+.img-cross{
+    margin: auto 5px auto 5px;
+    height: 20px;
 }
             /*---------- SORT -----------*/
 
@@ -115,14 +155,7 @@ header{
     position: absolute;
 }
 
-.ingredients-tag{
-    padding: 10px 0px 5px 10px;
-    color: #FFFFFF;
-    font-family: 'Lato';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 18px;
-}
+
 /* SORT APPAREILS */
 .sort-appareils{
     display: inline-block;
