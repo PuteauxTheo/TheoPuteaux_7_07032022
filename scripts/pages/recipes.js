@@ -1,5 +1,6 @@
 const divRecipes = document.getElementById('recipes');
 
+//displayRecipes permet d'afficher les recettes sur la page
 function displayRecipes(dataRecipes){
 
     dataRecipes.forEach( el => {

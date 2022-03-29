@@ -44,8 +44,6 @@ function addTag(ingredient, appareil, ustensil){
         const tag = tagFactory(el, "ustensil")
         sortUstensilesData.appendChild(tag);
     })
-
-    
 }
 
 // filterTab permet d'enlever les doublons dans les tags
@@ -71,7 +69,6 @@ function displayTag(data, cat){
 
     divTag.appendChild(imgCross);
     tag.appendChild(divTag)
-    
 }
 
 // deleteTag permet de supprimer le tag 

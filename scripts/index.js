@@ -9,7 +9,7 @@
 
 // tabDataTag permet de creer les tableaux pour les filtres 
 
-
+// tabIngredient renvoie le tableau de tous les ingredients sans doublons 
 function tabIngredient(data){
     let tabDataIngredients = [];
 
@@ -21,6 +21,7 @@ function tabIngredient(data){
     return (tabDataIngredients.filter(isUniqueValue))
 }
 
+// tabAppareil renvoie le tableau de tous les ingredients sans doublons 
 
 function tabAppareil(data){
      let tabDataAppareils = []
@@ -30,13 +31,14 @@ function tabAppareil(data){
     return (tabDataAppareils.filter(isUniqueValue))
 }
 
+// tabUstensil renvoie le tableau de tous les ingredients sans doublons 
+
 function tabUstensil(data){
     let tabDataUstensils = []
     data.forEach( el => {
         el.ustensils.forEach( ust => {
             tabDataUstensils.push(ust.toLowerCase())
         })
-        
     })
     return (tabDataUstensils.filter(isUniqueValue))
 }

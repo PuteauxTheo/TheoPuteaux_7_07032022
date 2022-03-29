@@ -3,6 +3,7 @@ function recipesFactory(data){
     const { id, name, servings, ingredients, time, description, appliance, ustensils} = data ;
     const timerPATH = `assets/clocktimer.png`;
 
+    //getRecipesDOM permet de creer l'article pour une recette
     function getRecipesDOM(){
         const article = document.createElement('article');
         const divIMG = document.createElement('div');
