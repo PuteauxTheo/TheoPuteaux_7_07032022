@@ -1,8 +1,11 @@
-function tagFactory(data){
+function tagFactory(data, cat){
 
     const span = document.createElement('span')
-    span.className = " ingredients-tag"
+    span.className = "tag-list"
     span.textContent = data;
+    span.addEventListener('click', () => {
+        displayTag(data, cat)
+    })
 
     return (span)
 }
