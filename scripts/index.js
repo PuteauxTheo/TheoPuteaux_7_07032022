@@ -1,14 +1,3 @@
-// for(let y =0; y < recipes.length; y++){
-//     for(let i =0;i < recipes[y].ingredients.length;i++){
-        
-//         tabIngredients.push(recipes[y].ingredients[i].ingredient) 
-//         // console.log(" tab a chaque fois "+tabIngredients)
-
-//     }
-// }
-
-// tabDataTag permet de creer les tableaux pour les filtres 
-
 // tabIngredient renvoie le tableau de tous les ingredients sans doublons 
 function tabIngredient(data){
     let tabDataIngredients = [];
