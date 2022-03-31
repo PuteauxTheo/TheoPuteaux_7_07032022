@@ -4,8 +4,8 @@ const divRecipes = document.getElementById('recipes');
 function displayRecipes(dataRecipes){
 
     dataRecipes.forEach( el => {
-        const a = recipesFactory(el)
-        const recipesDOM = a.getRecipesDOM();
+        const recipesModel = recipesFactory(el)
+        const recipesDOM = recipesModel.getRecipesDOM();
         divRecipes.appendChild(recipesDOM);
     })   
 }
