@@ -30,20 +30,18 @@ const sortUstensilesData = document.querySelector('.sort-ustensiles-data');
 // addTag permet d'ajouter pour chaque categorie la liste d'element qui lui correspond                   
 function addTag(ingredient, appareil, ustensil){
 
-    ingredient.forEach( el => {
-        const tag = tagFactory(el,"ingredient")
-        sortIngredientsData.appendChild(tag);
-    })
-
-    appareil.forEach( el => {
-        const tag = tagFactory(el, "appareil")
-        sortAppareilsData.appendChild(tag);
-    })
-
-    ustensil.forEach( el => {
-        const tag = tagFactory(el, "ustensil")
-        sortUstensilesData.appendChild(tag);
-    })
+    for(let i=0; i < ingredient.length;i++){
+        const tag = tagFactory(ingredient[i],"ingredient")
+        sortIngredientsData.appendChild(tag)
+    }
+    for(let i=0; i < appareil.length;i++){
+        const tag = tagFactory(appareil[i],"appareil")
+        sortAppareilsData.appendChild(tag)
+    }
+    for(let i=0; i < ustensil.length;i++){
+        const tag = tagFactory(ustensil[i],"ustensil")
+        sortUstensilesData.appendChild(tag)
+    }
 }
 
 // filterTab permet d'enlever les doublons dans les tags
