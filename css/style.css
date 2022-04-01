@@ -296,7 +296,7 @@ header{
     font-style: normal;
     font-weight: 400;
     font-size: 12px;
-    overflow: hidden;
+    overflow-y: scroll;
 }
 
 
