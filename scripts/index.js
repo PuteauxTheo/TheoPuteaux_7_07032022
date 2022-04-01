@@ -43,20 +43,38 @@ function tabAppareil(data){
 
 function tabUstensil(data){
     let tabDataUstensils = []
-    console.log("tabDataUs"+tabDataUstensils)
+    console.log("tabDataUs 2"+tabDataUstensils)
     for(let i=0; i < data.length; i++){
-        for(let j=0; j < data[i].ustensils.length; j++){               
+        for(let j=0; j < data[i].ustensils.length; j++){   
+            if(tabDataUstensils.length < 1){
                 tabDataUstensils.push(data[i].ustensils[j].toLowerCase());
+
+            }else{
+                let flag = true;
+                for(let m=0; m < tabDataUstensils.length; m++){
+                    console.log(" data "+data[i].ustensils[j])
+                    console.log(" data 561 "+tabDataUstensils[m])
+
+                    if(data[i].ustensils[j] == tabDataUstensils[m]){
+                        flag = false
+                    }
+
+                }
+                if(flag){
+                tabDataUstensils.push(data[i].ustensils[j].toLowerCase());
+                }
+            }       
+                
         }    
     }
     // cette boucle permet d'enlever les doublons 
-    for(let l=0; l < tabDataUstensils.length; l++){
-        for(let m=0; m < tabDataUstensils.length; m++){
-            if(tabDataUstensils[l] == tabDataUstensils[m]){
-                tabDataUstensils.splice(l,1);
-            }
-        }
-    }
+    // for(let l=0; l < tabDataUstensils.length; l++){
+    //     for(let m=0; m < tabDataUstensils.length; m++){
+    //         if(tabDataUstensils[l] == tabDataUstensils[m]){
+    //             tabDataUstensils.splice(l,1);
+    //         }
+    //     }
+    // }
     return (tabDataUstensils)
 
 }
