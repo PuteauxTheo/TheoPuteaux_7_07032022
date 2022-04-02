@@ -282,6 +282,7 @@ header{
     display: grid;
     grid-template-columns: 1fr 1fr;
     height: 105px;
+    column-gap: 5px;
 }
 
 .content-ingredients{
@@ -289,6 +290,13 @@ header{
     font-style: normal;
     font-weight: 700;
     font-size: 12px;
+    overflow: hidden;
+}
+
+.content-ingredients div{
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 .content-description{
@@ -296,7 +304,12 @@ header{
     font-style: normal;
     font-weight: 400;
     font-size: 12px;
-    overflow-y: scroll;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 7;
+    -webkit-box-orient: vertical;
+    white-space: normal;
 }
 
 
