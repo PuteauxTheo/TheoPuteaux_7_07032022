@@ -10,7 +10,7 @@ searchInput.addEventListener('input', e => {
 
     if(value.length >= 3){
         const recipeFilter = recipes.filter(word => word.name.toLowerCase().includes(value) || word.description.toLowerCase().includes(value) /* || ingredients */);
-        //const IngredientFilter = Ingredient.filter( word => word.toLowerCase().includes(value))
+        // for ici filtre recipes et tag en meme temps
         displayRecipes(recipeFilter);
         addTag(tabIngredient(recipeFilter),tabAppareil(recipeFilter),tabUstensil(recipeFilter));
     }else{
