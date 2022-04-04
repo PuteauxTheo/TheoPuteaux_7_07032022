@@ -9,8 +9,20 @@ searchInput.addEventListener('input', e => {
     const value = e.target.value.toLowerCase();
 
     if(value.length >= 3){
-        const recipeFilter = recipes.filter(word => word.name.toLowerCase().includes(value) || word.description.toLowerCase().includes(value) /* || ingredients */);
+        let recipeFilter = [];
         // for ici filtre recipes et tag en meme temps
+        for(let i=0; i < recipes.length;i++){
+            let flag = true;
+            for(let j=0; j < recipes[i].ingredients.length; j++){
+                if(flag){
+                    if(recipes[i].ingredients[j].ingredient.toLowerCase().trim().includes(value) || recipes[i].description.toLowerCase().includes(value) || recipes[i].name.toLowerCase().includes(value)){
+                        flag = false;
+                        recipeFilter.push(recipes[i]) ;
+                    }
+                }
+            }           
+        }
+        
         displayRecipes(recipeFilter);
         addTag(tabIngredient(recipeFilter),tabAppareil(recipeFilter),tabUstensil(recipeFilter));
     }else{
