@@ -116,6 +116,21 @@ header{
     column-gap: 20px;
 }
 
+.sort-search{
+    width: -webkit-fill-available;
+    background: none;
+    border: none;
+}
+
+.sort-search::placeholder{
+    color: #fff;
+    opacity: 60%;
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+}
+
 .sort-title{
     margin: 0;
     padding: 25px;
@@ -133,6 +148,7 @@ header{
     border-radius: 5px;
     flex-direction: row;
     position: relative;
+    width: 13%;
 }
 
 .sort-ingredients-close{
@@ -144,14 +160,12 @@ header{
     display: none;
     flex-direction: row;
     padding: 25px;
-    width: 600px;
 }
 
 .sort-ingredients-data{
     display: none;
     grid-template-columns: repeat(3, 1fr);    
     background-color: #3282f2;
-    width: 650px;
     position: absolute;
 }
 
@@ -163,6 +177,7 @@ header{
     border-radius: 5px;
     flex-direction: row;
     position: relative;
+    width: 13%;
 }
 
 .sort-appareils-close{
@@ -174,14 +189,12 @@ header{
     display: none;
     flex-direction: row;
     padding: 25px;
-    width: 600px;
 }
 
 .sort-appareils-data{
     display: none;
     grid-template-columns: repeat(3, 1fr);    
     background-color: #68d9a4;
-    width: 650px;
     position: absolute;
 }
 
@@ -192,6 +205,7 @@ header{
     border-radius: 5px;
     flex-direction: row;
     position: relative;
+    width: 13%;
 }
 
 .sort-ustensiles-close{
@@ -203,14 +217,12 @@ header{
     display: none;
     flex-direction: row;
     padding: 25px;
-    width: 600px;
 }
 
 .sort-ustensiles-data{
     display: none;
     grid-template-columns: repeat(3, 1fr);    
     background-color: #ed6454;
-    width: 650px;
     position: absolute;
 }
 
@@ -276,6 +288,7 @@ header{
     font-weight: 700;
     font-size: 18px;
     margin-left: 5px;
+    width: 66px;
 }
 
 .recipes-content{
