@@ -5,7 +5,9 @@ const sortClose = document.querySelectorAll('.close');
 
 sortClose.forEach( sort => {
    sort.addEventListener('click', () => {
-
+    
+        sort.parentElement.style.width = "33%";
+        sort.parentElement.style.borderRadius = "5px 5px 0px 0px"
         sort.style.display = "none";
         sort.parentElement.childNodes[3].style.display = "flex"
         sort.parentElement.childNodes[5].style.display = "grid"
@@ -15,7 +17,9 @@ sortClose.forEach( sort => {
 const sortOpen = document.querySelectorAll('.open');
 
 sortOpen.forEach( sort => {
-    sort.addEventListener('click', () => {
+    sort.childNodes[3].addEventListener('click', () => {
+        sort.parentElement.style.width = "13%";
+        sort.parentElement.style.borderRadius = "5px"
         sort.style.display = "none";
         sort.parentElement.childNodes[1].style.display = "flex"
         sort.parentElement.childNodes[5].style.display = "none"
@@ -30,16 +34,64 @@ const sortUstensilesData = document.querySelector('.sort-ustensiles-data');
 // addTag permet d'ajouter pour chaque categorie la liste d'element qui lui correspond                   
 function addTag(ingredient, appareil, ustensil){
 
+    const searchIngredient = document.getElementById('sort-search-ingredient');
+    searchIngredient.addEventListener('input', e => {
+        sortIngredientsData.innerHTML = "";
+        let valueInput = e.target.value.toLowerCase()
+        if(valueInput.length > 0){
+            const ingredientFilter = ingredient.filter( ing => ing.toLowerCase().includes(valueInput));
+            ingredientFilter.forEach( el => {
+                const tag = tagFactory(el,"ingredient")
+                sortIngredientsData.appendChild(tag);
+        })}else{
+            ingredient.forEach( el => {
+                const tag = tagFactory(el,"ingredient")
+                sortIngredientsData.appendChild(tag);
+            })
+        }
+    })
     ingredient.forEach( el => {
         const tag = tagFactory(el,"ingredient")
         sortIngredientsData.appendChild(tag);
     })
-
+    
+    const searchAppareil = document.getElementById('sort-search-appareil');
+    searchAppareil.addEventListener('input', e => {
+        sortAppareilsData.innerHTML = "";
+        let valueInput = e.target.value.toLowerCase()
+        if(valueInput.length > 0){
+            const appareilFilter = appareil.filter( appa => appa.toLowerCase().includes(valueInput));
+            appareilFilter.forEach( el => {
+                const tag = tagFactory(el,"appareil")
+                sortAppareilsData.appendChild(tag);
+        })}else{
+            appareil.forEach( el => {
+                const tag = tagFactory(el,"appareil")
+                sortAppareilsData.appendChild(tag);
+            })
+        }
+    })
     appareil.forEach( el => {
         const tag = tagFactory(el, "appareil")
         sortAppareilsData.appendChild(tag);
     })
 
+    const searchUstensile = document.getElementById('sort-search-ustensile');
+    searchUstensile.addEventListener('input', e => {
+        sortUstensilesData.innerHTML = "";
+        let valueInput = e.target.value.toLowerCase()
+        if(valueInput.length > 0){
+            const ustensilFilter = ustensil.filter( ust => ust.toLowerCase().includes(valueInput));
+            ustensilFilter.forEach( el => {
+                const tag = tagFactory(el,"ustensil")
+                sortUstensilesData.appendChild(tag);
+        })}else{
+            ustensil.forEach( el => {
+                const tag = tagFactory(el,"ustensil")
+                sortUstensilesData.appendChild(tag);
+            })
+        }
+    })
     ustensil.forEach( el => {
         const tag = tagFactory(el, "ustensil")
         sortUstensilesData.appendChild(tag);
@@ -149,19 +201,21 @@ function filterTag(data){
 
 }
 
+var recipeFilter = recipes;
+
 function researchWithTag(recipe){
     console.log(" tag selected ingredient : "+tagSelectedIngredients)
     console.log(" tag selected appareil : "+tagSelectedAppareils)
     console.log(" tag selected ustensil : "+tagSelectedUstensils)
 
-    const recipeFilterTag = recipe.filter((el) => el.ingredients.some((ingredient) => ingredient.ingredient.toLowerCase().includes(tagSelectedIngredients)) && el.appliance.toLowerCase().includes(tagSelectedAppareils) && el.ustensils.some((ustensil) => ustensil.toLowerCase().includes(tagSelectedUstensils) ))
+    recipeFilter = recipe.filter((el) => el.ingredients.some((ingredient) => ingredient.ingredient.toLowerCase().includes(tagSelectedIngredients)) && el.appliance.toLowerCase().includes(tagSelectedAppareils) && el.ustensils.some((ustensil) => ustensil.toLowerCase().includes(tagSelectedUstensils) ))
     //const recipeFilterTag = test.filter((el) => el.ingredients.some(ingredient => ingredient.ingredient.toLowerCase().includes(tagSelectedIngredients)))
-    console.log(" testtest "+recipeFilterTag)
-    if(recipeFilterTag.length > 0 ){
+    console.log(" testtest "+recipeFilter)
+    if(recipeFilter.length > 0 ){
         divRecipes.innerHTML = "";
-        displayRecipes(recipeFilterTag);
+        displayRecipes(recipeFilter);
     }
-    if(recipeFilterTag.length === 0){
+    if(recipeFilter.length === 0){
         divRecipes.innerHTML = " Aucune recette correspond ... ";
     }
 
