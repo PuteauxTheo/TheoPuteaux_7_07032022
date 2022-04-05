@@ -6,14 +6,16 @@ searchInput.addEventListener('input', e => {
     sortIngredientsData.innerHTML = "";
     sortAppareilsData.innerHTML = "";
     sortUstensilesData.innerHTML = "";
-    const value = e.target.value.toLowerCase();
+    var value = e.target.value.toLowerCase();
 
     if(value.length >= 3){
-        const recipeFilter = recipes.filter(word => word.name.toLowerCase().includes(value) || word.description.toLowerCase().includes(value) || word.ingredients.some((ingredient) => ingredient.ingredient.toLowerCase().includes(value)));
+        recipeFilter = recipes.filter(word => word.name.toLowerCase().includes(value) || word.description.toLowerCase().includes(value) || word.ingredients.some((ingredient) => ingredient.ingredient.toLowerCase().includes(value)));
         displayRecipes(recipeFilter);
         addTag(tabIngredient(recipeFilter),tabAppareil(recipeFilter),tabUstensil(recipeFilter));
     }else{
-        displayRecipes(recipes);
+        value = "";
+        recipeFilter = recipes.filter(word => word.name.toLowerCase().includes(value) || word.description.toLowerCase().includes(value) || word.ingredients.some((ingredient) => ingredient.ingredient.toLowerCase().includes(value)));
+        displayRecipes(recipeFilter);
         addTag(Ingredient,Appareil,Ustensil);
 
     }
