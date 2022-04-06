@@ -6,10 +6,9 @@ searchInput.addEventListener('input', e => {
     sortIngredientsData.innerHTML = "";
     sortAppareilsData.innerHTML = "";
     sortUstensilesData.innerHTML = "";
-    const value = e.target.value.toLowerCase();
-
+    var value = e.target.value.toLowerCase();
+    
     if(value.length >= 3){
-        let recipeFilter = [];
         // for ici filtre recipes et tag en meme temps
         for(let i=0; i < recipes.length;i++){
             let flag = true;
@@ -26,7 +25,11 @@ searchInput.addEventListener('input', e => {
         displayRecipes(recipeFilter);
         addTag(tabIngredient(recipeFilter),tabAppareil(recipeFilter),tabUstensil(recipeFilter));
     }else{
-        displayRecipes(recipes);
+        // value = "";
+        // if(recipeFilter.length == 0){
+        //     recipeFilter = recipes;
+        // }
+        displayRecipes(recipeFilter);
         addTag(Ingredient,Appareil,Ustensil);
 
     }
