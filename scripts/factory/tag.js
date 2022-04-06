@@ -4,7 +4,7 @@ function tagFactory(data, cat){
     span.className = "tag-list"
     span.textContent = data;
     span.addEventListener('click', () => {
-        displayTag(data, cat)
+        addTagSelected(data, cat)
     })
 
     return (span)
