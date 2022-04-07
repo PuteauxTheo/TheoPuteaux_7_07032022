@@ -103,6 +103,7 @@ var tagSelectedIngredients = [];
 var tagSelectedAppareils = [];
 var tagSelectedUstensils = [];
 
+// addTagSelected permet d'ajouter le text du tag selectionne dans un tableau 
 function addTagSelected(data, cat){
     if(cat == "ingredient"){
         if(!tagSelectedIngredients.includes(data)){
