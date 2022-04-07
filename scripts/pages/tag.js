@@ -126,6 +126,7 @@ function addTagSelected(data, cat){
 
 const tag = document.querySelector('.tag');
 
+//filterTag permet d'afficher les tags qui sont selectionné et appel researchWithTag pour affiche les recettes
 function filterTag(){
 
     tag.innerHTML = ""
@@ -149,6 +150,7 @@ function filterTag(){
 // var recipeFilter = recipes;
 var recipeFilter = [];
 
+// researchWithTag permet d'afficher les recettes qui correspondent soit au ingredient, appareil ou ustensile selectionné
 function researchWithTag(){
     console.log(" tag selected ingredient taille : "+tagSelectedIngredients.length)
     console.log(" tag selected ingredient : "+tagSelectedIngredients)
@@ -158,53 +160,49 @@ function researchWithTag(){
 
     console.log(" tag selected ustensil taille : "+tagSelectedUstensils.length)
     console.log(" tag selected ustensil : "+tagSelectedUstensils)
-
+    var lengthRecipes = recipes.length;
     if(tagSelectedAppareils.length == 0 && tagSelectedIngredients.length == 0 && tagSelectedUstensils.length == 0 ){
-        recipeFilter = recipes;
+        
+        recipeFilter = [];
+        displayRecipes(recipes);
     }else{
         console.log(" Avant d'etre filtre : "+recipeFilter)
-        for(let i=0; i < 50;i++){
+        for(var i=0; i < lengthRecipes;i++){
             console.log(" recipe length : "+recipes.length)
-            let flag = true;
-            // for(let j=0; j < recipe[i].ingredients.length; j++){
-            //     for(let m=0; m < tagSelectedIngredients.length; m++){
-            //         console.log(" i : "+i+" j : "+j+" m : "+m)
-            //         if(recipe[i].ingredients[j].ingredient.toLowerCase().trim() == tagSelectedIngredients[m] ){
-            //             flag = false;
-            //         }
-            //     }
-            // }
-            if(tagSelectedAppareils === 0){
+            let flag = false;
+            for(let j=0; j < recipes[i].ingredients.length; j++){
+                for(let m=0; m < tagSelectedIngredients.length; m++){
+                    if(recipes[i].ingredients[j].ingredient.toLowerCase().trim() == tagSelectedIngredients[m] ){
+                        flag = true;
+                    }
+                }
+            }
+            if(tagSelectedAppareils.length > 0){
                 for(let a=0; a < tagSelectedAppareils.length; a++){
                     if(recipes[i].appliance.toLowerCase().trim() == tagSelectedAppareils[a]){
-                        flag = false;
+                        flag = true;
                     }
                 }
             }
             
-            // for(let k=0; k < recipe[i].ustensils.length; k++){
-            //     for(let l=0; l < tagSelectedUstensils.length; l++){
-            //         if(recipe[i].ustensils[k].toLowerCase().trim() == tagSelectedUstensils[l]){
-            //             flag = false;
-            //         }                    
-            //     }
-            // }
+            for(let k=0; k < recipes[i].ustensils.length; k++){
+                for(let l=0; l < tagSelectedUstensils.length; l++){
+                    if(recipes[i].ustensils[k].toLowerCase().trim() == tagSelectedUstensils[l]){
+                        flag = true;
+                    }                    
+                }
+            }
             if(flag){
                 recipeFilter.push(recipes[i]);
             }
         }           
     }
     
-    
-    //const recipeFilterTag = test.filter((el) => el.ingredients.some(ingredient => ingredient.ingredient.toLowerCase().includes(tagSelectedIngredients)))
-    console.log(" Nb recette au debut "+recipes.length)
-    console.log(" Recettes affiche "+recipeFilter.length+"  "+recipeFilter)
-    
     if(recipeFilter.length > 0 ){
         divRecipes.innerHTML = "";
         displayRecipes(recipeFilter);
     }
-    if(recipeFilter.length === 0){
+    if(recipeFilter.length === 0 && (tagSelectedAppareils.length > 0 || tagSelectedIngredients.length > 0 || tagSelectedUstensils.length > 0 )){
         divRecipes.innerHTML = " Aucune recette correspond ... ";
     }
 
