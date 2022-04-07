@@ -158,6 +158,7 @@ var tagSelectedIngredients = [];
 var tagSelectedAppareils = [];
 var tagSelectedUstensils = [];
 
+// addTagSelected permet d'ajouter le text du tag selectionne dans un tableau 
 function addTagSelected(data, cat){
     if(cat == "ingredient"){
         if(!tagSelectedIngredients.includes(data)){
@@ -181,6 +182,7 @@ function addTagSelected(data, cat){
 
 const tag = document.querySelector('.tag');
 
+//filterTag permet d'afficher les tags qui sont selectionné et appel researchWithTag pour affiche les recettes
 function filterTag(data){
 
     tag.innerHTML = ""
@@ -203,6 +205,9 @@ function filterTag(data){
 
 var recipeFilter = recipes;
 
+
+
+// researchWithTag permet d'afficher les recettes qui correspondent soit au ingredient, appareil ou ustensile selectionné
 function researchWithTag(recipe){
     console.log(" tag selected ingredient : "+tagSelectedIngredients)
     console.log(" tag selected appareil : "+tagSelectedAppareils)
