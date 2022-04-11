@@ -9,12 +9,14 @@ searchInput.addEventListener('input', e => {
     var value = e.target.value.toLowerCase();
 
     if(value.length >= 3){
-        recipeFilter = recipes.filter(word => word.name.toLowerCase().includes(value) || word.description.toLowerCase().includes(value) || word.ingredients.some((ingredient) => ingredient.ingredient.toLowerCase().includes(value)));
+        recipeFilter = recipeFilter.filter(word => word.name.toLowerCase().includes(value) || word.description.toLowerCase().includes(value) || word.ingredients.some((ingredient) => ingredient.ingredient.toLowerCase().includes(value)));
+        //researchWithTag();
         displayRecipes(recipeFilter);
         addTag(tabIngredient(recipeFilter),tabAppareil(recipeFilter),tabUstensil(recipeFilter));
     }else{
         value = "";
-        recipeFilter = recipes.filter(word => word.name.toLowerCase().includes(value) || word.description.toLowerCase().includes(value) || word.ingredients.some((ingredient) => ingredient.ingredient.toLowerCase().includes(value)));
+        recipeFilter = recipeFilter.filter(word => word.name.toLowerCase().includes(value) || word.description.toLowerCase().includes(value) || word.ingredients.some((ingredient) => ingredient.ingredient.toLowerCase().includes(value)));
+        //researchWithTag();
         displayRecipes(recipeFilter);
         addTag(Ingredient,Appareil,Ustensil);
 
