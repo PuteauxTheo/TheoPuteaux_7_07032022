@@ -54,6 +54,29 @@ function addTag(ingredient, appareil, ustensil){
         const tag = tagFactory(el,"ingredient")
         sortIngredientsData.appendChild(tag);
     })
+
+    // const openTagList = document.querySelectorAll('.open');
+
+    // openTagList.childNodes[1].addEventListener('input', e => {
+    //     if(e.id = "sort-ingredient-open"){
+    //         const tab = ingredient;
+    //         let typeTag = "ingredient"
+    //     }
+    //     e.parentElement.parentElement.childNodes[5].innerHTML = "";
+    //     let valueInput = e.target.value.toLowerCase()
+    //     if(valueInput.length > 0){
+    //         const tabFilter = tab.filter( el => el.toLowerCase().includes(valueInput));
+    //         tabFilter.forEach( el => {
+    //             const tag = tagFactory(el,typeTag)
+    //             sortIngredientsData.appendChild(tag);
+    //     })}else{
+    //         ingredient.forEach( el => {
+    //             const tag = tagFactory(el,"ingredient")
+    //             sortIngredientsData.appendChild(tag);
+    //         })
+    //     }
+
+    // })
     
     const searchAppareil = document.getElementById('sort-search-appareil');
     searchAppareil.addEventListener('input', e => {
@@ -177,13 +200,13 @@ function addTagSelected(data, cat){
         tagSelectedUstensils.push(data);
     }
 
-    filterTag(recipes);
+    filterTag();
 }
 
 const tag = document.querySelector('.tag');
 
 //filterTag permet d'afficher les tags qui sont selectionné et appel researchWithTag pour affiche les recettes
-function filterTag(data){
+function filterTag(){
 
     tag.innerHTML = ""
 
@@ -199,7 +222,7 @@ function filterTag(data){
         displayTag(tagUstensil,"ustensil");
     })
 
-    researchWithTag(data)
+    researchWithTag()
 
 }
 
@@ -208,12 +231,13 @@ var recipeFilter = recipes;
 
 
 // researchWithTag permet d'afficher les recettes qui correspondent soit au ingredient, appareil ou ustensile selectionné
-function researchWithTag(recipe){
+function researchWithTag(){
     console.log(" tag selected ingredient : "+tagSelectedIngredients)
     console.log(" tag selected appareil : "+tagSelectedAppareils)
     console.log(" tag selected ustensil : "+tagSelectedUstensils)
 
-    recipeFilter = recipe.filter((el) => el.ingredients.some((ingredient) => ingredient.ingredient.toLowerCase().includes(tagSelectedIngredients)) && el.appliance.toLowerCase().includes(tagSelectedAppareils) && el.ustensils.some((ustensil) => ustensil.toLowerCase().includes(tagSelectedUstensils) ))
+    recipeFilter = recipeFilter.filter((el) => tagSelectedIngredients.every(tagIng => el.ingredients.some((ingredient) => ingredient.ingredient.toLowerCase().includes(tagIng))) && el.appliance.toLowerCase().includes(tagSelectedAppareils) && tagSelectedUstensils.every(tagUst => el.ustensils.some(ustensil => ustensil.toLowerCase().includes(tagUst)) ))
+    // recipeFilter = recipe.filter( (el) => tagSelectedIngredients.every(tagIng => el.ingredients.some((ingredient) => ingredient.ingredient.toLowerCase().includes(tagIng))));
     //const recipeFilterTag = test.filter((el) => el.ingredients.some(ingredient => ingredient.ingredient.toLowerCase().includes(tagSelectedIngredients)))
     console.log(" testtest "+recipeFilter)
     if(recipeFilter.length > 0 ){
