@@ -53,30 +53,7 @@ function addTag(ingredient, appareil, ustensil){
     ingredient.forEach( el => {
         const tag = tagFactory(el,"ingredient")
         sortIngredientsData.appendChild(tag);
-    })
-
-    // const openTagList = document.querySelectorAll('.open');
-
-    // openTagList.childNodes[1].addEventListener('input', e => {
-    //     if(e.id = "sort-ingredient-open"){
-    //         const tab = ingredient;
-    //         let typeTag = "ingredient"
-    //     }
-    //     e.parentElement.parentElement.childNodes[5].innerHTML = "";
-    //     let valueInput = e.target.value.toLowerCase()
-    //     if(valueInput.length > 0){
-    //         const tabFilter = tab.filter( el => el.toLowerCase().includes(valueInput));
-    //         tabFilter.forEach( el => {
-    //             const tag = tagFactory(el,typeTag)
-    //             sortIngredientsData.appendChild(tag);
-    //     })}else{
-    //         ingredient.forEach( el => {
-    //             const tag = tagFactory(el,"ingredient")
-    //             sortIngredientsData.appendChild(tag);
-    //         })
-    //     }
-
-    // })
+    })    
     
     const searchAppareil = document.getElementById('sort-search-appareil');
     searchAppareil.addEventListener('input', e => {
@@ -242,6 +219,7 @@ function researchWithTag(){
     console.log(" testtest "+recipeFilter)
     if(recipeFilter.length > 0 ){
         divRecipes.innerHTML = "";
+        addTag(tabIngredient(recipeFilter),tabAppareil(recipeFilter),tabUstensil(recipeFilter));
         displayRecipes(recipeFilter);
     }
     if(recipeFilter.length === 0){
