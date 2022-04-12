@@ -35,6 +35,8 @@ const sortUstensilesData = document.querySelector('.sort-ustensiles-data');
 function addTag(ingredient, appareil, ustensil){
 
     const searchIngredient = document.getElementById('sort-search-ingredient');
+    sortIngredientsData.innerHTML = "";
+    
     searchIngredient.addEventListener('input', e => {
         sortIngredientsData.innerHTML = "";
         let valueInput = e.target.value.toLowerCase()
@@ -56,6 +58,8 @@ function addTag(ingredient, appareil, ustensil){
     })    
     
     const searchAppareil = document.getElementById('sort-search-appareil');
+    sortAppareilsData.innerHTML = "";
+
     searchAppareil.addEventListener('input', e => {
         sortAppareilsData.innerHTML = "";
         let valueInput = e.target.value.toLowerCase()
@@ -77,6 +81,8 @@ function addTag(ingredient, appareil, ustensil){
     })
 
     const searchUstensile = document.getElementById('sort-search-ustensile');
+    sortUstensilesData.innerHTML = "";
+
     searchUstensile.addEventListener('input', e => {
         sortUstensilesData.innerHTML = "";
         let valueInput = e.target.value.toLowerCase()
@@ -212,11 +218,12 @@ function researchWithTag(){
     console.log(" tag selected ingredient : "+tagSelectedIngredients)
     console.log(" tag selected appareil : "+tagSelectedAppareils)
     console.log(" tag selected ustensil : "+tagSelectedUstensils)
+    console.log("RecipeFilter content avant filtre "+recipeFilter)
 
-    recipeFilter = recipeFilter.filter((el) => tagSelectedIngredients.every(tagIng => el.ingredients.some((ingredient) => ingredient.ingredient.toLowerCase().includes(tagIng))) && el.appliance.toLowerCase().includes(tagSelectedAppareils) && tagSelectedUstensils.every(tagUst => el.ustensils.some(ustensil => ustensil.toLowerCase().includes(tagUst)) ))
+    recipeFilter = recipes.filter((el) => tagSelectedIngredients.every(tagIng => el.ingredients.some((ingredient) => ingredient.ingredient.toLowerCase().includes(tagIng))) && el.appliance.toLowerCase().includes(tagSelectedAppareils) && tagSelectedUstensils.every(tagUst => el.ustensils.some(ustensil => ustensil.toLowerCase().includes(tagUst)) ))
     // recipeFilter = recipe.filter( (el) => tagSelectedIngredients.every(tagIng => el.ingredients.some((ingredient) => ingredient.ingredient.toLowerCase().includes(tagIng))));
     //const recipeFilterTag = test.filter((el) => el.ingredients.some(ingredient => ingredient.ingredient.toLowerCase().includes(tagSelectedIngredients)))
-    console.log(" testtest "+recipeFilter)
+    console.log("RecipeFilter content "+recipeFilter)
     if(recipeFilter.length > 0 ){
         divRecipes.innerHTML = "";
         addTag(tabIngredient(recipeFilter),tabAppareil(recipeFilter),tabUstensil(recipeFilter));
