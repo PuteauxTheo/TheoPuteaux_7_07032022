@@ -90,18 +90,14 @@ function displayTag(data, cat){
     tag.appendChild(divTag)
 }
 
-// deleteTag permet de supprimer le tag 
+// deleteTag permet de supprimer le tag selectionner 
 function deleteTag(tag){
-    //tag.parentElement.remove();
     if(tag.parentElement.className == "tag-ingredient"){
         tagSelectedIngredients.forEach(function(item, index, object){
             if(item == tag.parentElement.textContent){
                object.splice(index, 1);
-
             }
         })
-        console.log(" test "+tagSelectedIngredients)
-        //tagSelectedIngredients.filter(ingredient => !ingredient.includes(tag.parentElement.textContent))
     }
     if(tag.parentElement.className == "tag-appareil"){
         tagSelectedAppareils.forEach(function(item, index, object){
@@ -118,7 +114,7 @@ function deleteTag(tag){
         })
     }
 
-    filterTag(recipes);
+    filterTag();
 }
 
 var tagSelectedIngredients = [];
@@ -176,14 +172,8 @@ var recipeFilter = recipes;
 
 // researchWithTag permet d'afficher les recettes qui correspondent soit au ingredient, appareil ou ustensile selectionné
 function researchWithTag(){
-    console.log(" tag selected ingredient : "+tagSelectedIngredients)
-    console.log(" tag selected appareil : "+tagSelectedAppareils)
-    console.log(" tag selected ustensil : "+tagSelectedUstensils)
-    console.log("RecipeFilter content avant filtre "+recipeFilter)
-
+    // recipeFilter filtre les recettes si les elements choisit dans les tags sont present dans les recettes 
     recipeFilter = recipes.filter((el) => tagSelectedIngredients.every(tagIng => el.ingredients.some((ingredient) => ingredient.ingredient.toLowerCase().includes(tagIng))) && el.appliance.toLowerCase().includes(tagSelectedAppareils) && tagSelectedUstensils.every(tagUst => el.ustensils.some(ustensil => ustensil.toLowerCase().includes(tagUst)) ))
-    // recipeFilter = recipe.filter( (el) => tagSelectedIngredients.every(tagIng => el.ingredients.some((ingredient) => ingredient.ingredient.toLowerCase().includes(tagIng))));
-    //const recipeFilterTag = test.filter((el) => el.ingredients.some(ingredient => ingredient.ingredient.toLowerCase().includes(tagSelectedIngredients)))
     console.log("RecipeFilter content "+recipeFilter)
     if(recipeFilter.length > 0 ){
         divRecipes.innerHTML = "";
