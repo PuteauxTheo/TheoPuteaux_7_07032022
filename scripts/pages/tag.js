@@ -153,57 +153,15 @@ var recipeFilter = [];
 
 // researchWithTag permet d'afficher les recettes qui correspondent soit au ingredient, appareil ou ustensile selectionné
 function researchWithTag(){
-    console.log(" tag selected ingredient taille : "+tagSelectedIngredients.length)
-    console.log(" tag selected ingredient : "+tagSelectedIngredients)
-
-    console.log(" tag selected appareil taille : "+tagSelectedAppareils.length)
-    console.log(" tag selected appareil : "+tagSelectedAppareils)
-
-    console.log(" tag selected ustensil taille : "+tagSelectedUstensils.length)
-    console.log(" tag selected ustensil : "+tagSelectedUstensils)
-    var lengthRecipes = recipes.length;
-    if(tagSelectedAppareils.length == 0 && tagSelectedIngredients.length == 0 && tagSelectedUstensils.length == 0 ){
-        
-        recipeFilter = [];
-        displayRecipes(recipes);
-    }else{
-        console.log(" Avant d'etre filtre : "+recipeFilter)
-        for(var i=0; i < lengthRecipes;i++){
-            console.log(" recipe length : "+recipes.length)
-            let flag = false;
-            for(let j=0; j < recipes[i].ingredients.length; j++){
-                for(let m=0; m < tagSelectedIngredients.length; m++){
-                    if(recipes[i].ingredients[j].ingredient.toLowerCase().trim() == tagSelectedIngredients[m] ){
-                        flag = true;
-                    }
-                }
-            }
-            if(tagSelectedAppareils.length > 0){
-                for(let a=0; a < tagSelectedAppareils.length; a++){
-                    if(recipes[i].appliance.toLowerCase().trim() == tagSelectedAppareils[a]){
-                        flag = true;
-                    }
-                }
-            }
-            
-            for(let k=0; k < recipes[i].ustensils.length; k++){
-                for(let l=0; l < tagSelectedUstensils.length; l++){
-                    if(recipes[i].ustensils[k].toLowerCase().trim() == tagSelectedUstensils[l]){
-                        flag = true;
-                    }                    
-                }
-            }
-            if(flag){
-                recipeFilter.push(recipes[i]);
-            }
-        }           
-    }
-    
+    // recipeFilter filtre les recettes si les elements choisit dans les tags sont present dans les recettes 
+    recipeFilter = recipes.filter((el) => tagSelectedIngredients.every(tagIng => el.ingredients.some((ingredient) => ingredient.ingredient.toLowerCase().includes(tagIng))) && el.appliance.toLowerCase().includes(tagSelectedAppareils) && tagSelectedUstensils.every(tagUst => el.ustensils.some(ustensil => ustensil.toLowerCase().includes(tagUst)) ))
+    console.log("RecipeFilter content "+recipeFilter)
     if(recipeFilter.length > 0 ){
         divRecipes.innerHTML = "";
+        addTag(tabIngredient(recipeFilter),tabAppareil(recipeFilter),tabUstensil(recipeFilter));
         displayRecipes(recipeFilter);
     }
-    if(recipeFilter.length === 0 && (tagSelectedAppareils.length > 0 || tagSelectedIngredients.length > 0 || tagSelectedUstensils.length > 0 )){
+    if(recipeFilter.length === 0){
         divRecipes.innerHTML = " Aucune recette correspond ... ";
     }
 
