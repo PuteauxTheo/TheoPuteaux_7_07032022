@@ -179,11 +179,15 @@ function researchWithTag(){
     console.log(" tag selected ingredient : "+tagSelectedIngredients)
     console.log(" tag selected appareil : "+tagSelectedAppareils)
     console.log(" tag selected ustensil : "+tagSelectedUstensils)
+    console.log("RecipeFilter content avant filtre "+recipeFilter)
 
-    recipeFilter = recipeFilter.filter((el) => tagSelectedIngredients.every(tagIng => el.ingredients.some((ingredient) => ingredient.ingredient.toLowerCase().includes(tagIng))) && el.appliance.toLowerCase().includes(tagSelectedAppareils) && tagSelectedUstensils.every(tagUst => el.ustensils.some(ustensil => ustensil.toLowerCase().includes(tagUst)) ))
-    console.log(" testtest "+recipeFilter)
-    if(recipeFilter.length > 0){
+    recipeFilter = recipes.filter((el) => tagSelectedIngredients.every(tagIng => el.ingredients.some((ingredient) => ingredient.ingredient.toLowerCase().includes(tagIng))) && el.appliance.toLowerCase().includes(tagSelectedAppareils) && tagSelectedUstensils.every(tagUst => el.ustensils.some(ustensil => ustensil.toLowerCase().includes(tagUst)) ))
+    // recipeFilter = recipe.filter( (el) => tagSelectedIngredients.every(tagIng => el.ingredients.some((ingredient) => ingredient.ingredient.toLowerCase().includes(tagIng))));
+    //const recipeFilterTag = test.filter((el) => el.ingredients.some(ingredient => ingredient.ingredient.toLowerCase().includes(tagSelectedIngredients)))
+    console.log("RecipeFilter content "+recipeFilter)
+    if(recipeFilter.length > 0 ){
         divRecipes.innerHTML = "";
+        addTag(tabIngredient(recipeFilter),tabAppareil(recipeFilter),tabUstensil(recipeFilter));
         displayRecipes(recipeFilter);
     }
     if(recipeFilter.length === 0){
