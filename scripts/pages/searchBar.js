@@ -9,7 +9,6 @@ searchInput.addEventListener('input', e => {
     var value = e.target.value.toLowerCase();
     
     if(value.length >= 3){
-        // for ici filtre recipes et tag en meme temps
         for(let i=0; i < recipes.length;i++){
             let flag = true;
             for(let j=0; j < recipes[i].ingredients.length; j++){
@@ -21,14 +20,17 @@ searchInput.addEventListener('input', e => {
                 }
             }           
         }
+        recipeFilter = recipeFilter.filter((el) => tagSelectedIngredients.every(tagIng => el.ingredients.some((ingredient) => ingredient.ingredient.toLowerCase().includes(tagIng))) && el.appliance.toLowerCase().includes(tagSelectedAppareils) && tagSelectedUstensils.every(tagUst => el.ustensils.some(ustensil => ustensil.toLowerCase().includes(tagUst)) ))
+
+
+
         
         displayRecipes(recipeFilter);
         addTag(tabIngredient(recipeFilter),tabAppareil(recipeFilter),tabUstensil(recipeFilter));
     }else{
         // value = "";
-        // if(recipeFilter.length == 0){
-        //     recipeFilter = recipes;
-        // }
+        recipeFilter = recipes.filter((el) => tagSelectedIngredients.every(tagIng => el.ingredients.some((ingredient) => ingredient.ingredient.toLowerCase().includes(tagIng))) && el.appliance.toLowerCase().includes(tagSelectedAppareils) && tagSelectedUstensils.every(tagUst => el.ustensils.some(ustensil => ustensil.toLowerCase().includes(tagUst)) ))
+
         displayRecipes(recipeFilter);
         addTag(Ingredient,Appareil,Ustensil);
 
