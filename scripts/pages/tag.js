@@ -35,89 +35,33 @@ const sortUstensilesData = document.querySelector('.sort-ustensiles-data');
 function addTag(ingredient, appareil, ustensil){
 
     const searchIngredient = document.getElementById('sort-search-ingredient');
-    searchIngredient.addEventListener('input', e => {
-        sortIngredientsData.innerHTML = "";
-        let valueInput = e.target.value.toLowerCase()
-        if(valueInput.length > 0){
-            const ingredientFilter = ingredient.filter( ing => ing.toLowerCase().includes(valueInput));
-            ingredientFilter.forEach( el => {
-                const tag = tagFactory(el,"ingredient")
-                sortIngredientsData.appendChild(tag);
-        })}else{
-            ingredient.forEach( el => {
-                const tag = tagFactory(el,"ingredient")
-                sortIngredientsData.appendChild(tag);
-            })
-        }
-    })
-    ingredient.forEach( el => {
-        const tag = tagFactory(el,"ingredient")
-        sortIngredientsData.appendChild(tag);
-    })
-
-    // const openTagList = document.querySelectorAll('.open');
-
-    // openTagList.childNodes[1].addEventListener('input', e => {
-    //     if(e.id = "sort-ingredient-open"){
-    //         const tab = ingredient;
-    //         let typeTag = "ingredient"
-    //     }
-    //     e.parentElement.parentElement.childNodes[5].innerHTML = "";
-    //     let valueInput = e.target.value.toLowerCase()
-    //     if(valueInput.length > 0){
-    //         const tabFilter = tab.filter( el => el.toLowerCase().includes(valueInput));
-    //         tabFilter.forEach( el => {
-    //             const tag = tagFactory(el,typeTag)
-    //             sortIngredientsData.appendChild(tag);
-    //     })}else{
-    //         ingredient.forEach( el => {
-    //             const tag = tagFactory(el,"ingredient")
-    //             sortIngredientsData.appendChild(tag);
-    //         })
-    //     }
-
-    // })
-    
     const searchAppareil = document.getElementById('sort-search-appareil');
-    searchAppareil.addEventListener('input', e => {
-        sortAppareilsData.innerHTML = "";
-        let valueInput = e.target.value.toLowerCase()
-        if(valueInput.length > 0){
-            const appareilFilter = appareil.filter( appa => appa.toLowerCase().includes(valueInput));
-            appareilFilter.forEach( el => {
-                const tag = tagFactory(el,"appareil")
-                sortAppareilsData.appendChild(tag);
-        })}else{
-            appareil.forEach( el => {
-                const tag = tagFactory(el,"appareil")
-                sortAppareilsData.appendChild(tag);
-            })
-        }
-    })
-    appareil.forEach( el => {
-        const tag = tagFactory(el, "appareil")
-        sortAppareilsData.appendChild(tag);
-    })
-
     const searchUstensile = document.getElementById('sort-search-ustensile');
-    searchUstensile.addEventListener('input', e => {
-        sortUstensilesData.innerHTML = "";
+    searchBarTag(searchIngredient,sortIngredientsData,ingredient,'ingredient');
+    searchBarTag(searchAppareil,sortAppareilsData,appareil,"appareil");
+    searchBarTag(searchUstensile,sortUstensilesData,ustensil,"ustensil");
+    
+}
+
+function searchBarTag(searchType,sortData,tab,type){
+    searchType.addEventListener('input', e => {
+        sortData.innerHTML = "";
         let valueInput = e.target.value.toLowerCase()
         if(valueInput.length > 0){
-            const ustensilFilter = ustensil.filter( ust => ust.toLowerCase().includes(valueInput));
-            ustensilFilter.forEach( el => {
-                const tag = tagFactory(el,"ustensil")
-                sortUstensilesData.appendChild(tag);
+            const tabFilter = tab.filter( el => el.toLowerCase().includes(valueInput));
+            tabFilter.forEach( el => {
+                const tag = tagFactory(el,type)
+                sortData.appendChild(tag);
         })}else{
-            ustensil.forEach( el => {
-                const tag = tagFactory(el,"ustensil")
-                sortUstensilesData.appendChild(tag);
+            tab.forEach( el => {
+                const tag = tagFactory(el,type)
+                sortData.appendChild(tag);
             })
         }
     })
-    ustensil.forEach( el => {
-        const tag = tagFactory(el, "ustensil")
-        sortUstensilesData.appendChild(tag);
+    tab.forEach( el => {
+        const tag = tagFactory(el,type)
+        sortData.appendChild(tag);
     })
 }
 
@@ -237,10 +181,8 @@ function researchWithTag(){
     console.log(" tag selected ustensil : "+tagSelectedUstensils)
 
     recipeFilter = recipeFilter.filter((el) => tagSelectedIngredients.every(tagIng => el.ingredients.some((ingredient) => ingredient.ingredient.toLowerCase().includes(tagIng))) && el.appliance.toLowerCase().includes(tagSelectedAppareils) && tagSelectedUstensils.every(tagUst => el.ustensils.some(ustensil => ustensil.toLowerCase().includes(tagUst)) ))
-    // recipeFilter = recipe.filter( (el) => tagSelectedIngredients.every(tagIng => el.ingredients.some((ingredient) => ingredient.ingredient.toLowerCase().includes(tagIng))));
-    //const recipeFilterTag = test.filter((el) => el.ingredients.some(ingredient => ingredient.ingredient.toLowerCase().includes(tagSelectedIngredients)))
     console.log(" testtest "+recipeFilter)
-    if(recipeFilter.length > 0 ){
+    if(recipeFilter.length > 0){
         divRecipes.innerHTML = "";
         displayRecipes(recipeFilter);
     }
