@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 const searchInput = document.querySelector('.search-input');
 
 // permet de recherche les recettes qui correspondent a la saisie de la barre de recherche

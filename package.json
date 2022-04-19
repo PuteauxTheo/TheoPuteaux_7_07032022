@@ -1,0 +1,22 @@
+{
+  "name": "package",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PuteauxTheo/TheoPuteaux_7_07032022.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PuteauxTheo/TheoPuteaux_7_07032022/issues"
+  },
+  "homepage": "https://github.com/PuteauxTheo/TheoPuteaux_7_07032022#readme",
+  "devDependencies": {
+    "eslint": "^8.13.0"
+  }
+}

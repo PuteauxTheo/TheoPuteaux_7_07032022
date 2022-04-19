@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 function recipesFactory(data){
 
     const { id, name, servings, ingredients, time, description, appliance, ustensils} = data ;
@@ -73,5 +74,5 @@ function getIngredientsInfo(el){
 
     return (div);  
     
-};
+}
 

@@ -1,3 +1,5 @@
+/* eslint-disable no-undef */
+
 // tabIngredient renvoie le tableau de tous les ingredients sans doublons 
 function tabIngredient(data){
     let tabDataIngredients = [];
