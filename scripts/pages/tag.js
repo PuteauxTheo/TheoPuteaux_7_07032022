@@ -45,6 +45,7 @@ function addTag(ingredient, appareil, ustensil){
     
 }
 
+// searchBarTag permet de faire une recherche dans la barre des tags 
 function searchBarTag(searchType,sortData,tab,type){
     searchType.addEventListener('input', e => {
         sortData.innerHTML = "";
