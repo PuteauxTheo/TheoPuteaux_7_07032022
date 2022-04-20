@@ -38,7 +38,7 @@ var Ingredient = tabIngredient(recipes);
 var Appareil = tabAppareil(recipes);
 var Ustensil = tabUstensil(recipes);
 
-
+// affichage des recettes puis ajout des tags lors du chargement de la page 
 addTag (Ingredient,Appareil,Ustensil);
 displayRecipes(recipes);
 

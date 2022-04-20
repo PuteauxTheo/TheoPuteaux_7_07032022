@@ -1,3 +1,5 @@
+/* eslint-disable no-undef */
+/* eslint-disable no-unused-vars */
 const divRecipes = document.getElementById('recipes');
 
 //displayRecipes permet d'afficher les recettes sur la page

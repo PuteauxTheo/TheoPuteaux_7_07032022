@@ -120,6 +120,7 @@ function deleteTag(tag){
     filterTag();
 }
 
+// initialisation des tableaux de chaque categorie des tags selectionnés
 var tagSelectedIngredients = [];
 var tagSelectedAppareils = [];
 var tagSelectedUstensils = [];
