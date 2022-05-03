@@ -153,7 +153,9 @@ const tag = document.querySelector('.tag');
 function filterTag(){
 
     tag.innerHTML = ""
-
+    sortIngredientsData.innerHTML = ""
+    sortAppareilsData.innerHTML = ""
+    sortUstensilesData.innerHTML = ""
     tagSelectedIngredients.forEach( tagIngredient => {
         displayTag(tagIngredient,"ingredient");
     })
@@ -175,8 +177,15 @@ var recipeFilter = [];
 function researchWithTag(){
     // recipeFilter filtre les recettes si les elements choisit dans les tags sont present dans les recettes 
     recipeFilter = []
-    recipeFilter = recipes.filter((el) => tagSelectedIngredients.every(tagIng => el.ingredients.some((ingredient) => ingredient.ingredient.toLowerCase().includes(tagIng))) && el.appliance.toLowerCase().includes(tagSelectedAppareils) && tagSelectedUstensils.every(tagUst => el.ustensils.some(ustensil => ustensil.toLowerCase().includes(tagUst)) ))
+    let valueTag = searchInput.value.toLowerCase();
+    if(valueTag.length >= 3){
+        recipeFilter = recipes.filter(word => word.name.toLowerCase().includes(valueTag) || word.description.toLowerCase().includes(valueTag) || word.ingredients.some((ingredient) => ingredient.ingredient.toLowerCase().includes(valueTag)));
+        recipeFilter = recipeFilter.filter((el) => tagSelectedIngredients.every(tagIng => el.ingredients.some((ingredient) => ingredient.ingredient.toLowerCase().includes(tagIng))) && el.appliance.toLowerCase().includes(tagSelectedAppareils) && tagSelectedUstensils.every(tagUst => el.ustensils.some(ustensil => ustensil.toLowerCase().includes(tagUst)) ))
 
+    }else{
+        recipeFilter = recipes.filter((el) => tagSelectedIngredients.every(tagIng => el.ingredients.some((ingredient) => ingredient.ingredient.toLowerCase().includes(tagIng))) && el.appliance.toLowerCase().includes(tagSelectedAppareils) && tagSelectedUstensils.every(tagUst => el.ustensils.some(ustensil => ustensil.toLowerCase().includes(tagUst)) ))
+
+    }
     if(recipeFilter.length > 0 ){
         divRecipes.innerHTML = "";
         addTag(tabIngredient(recipeFilter),tabAppareil(recipeFilter),tabUstensil(recipeFilter));
