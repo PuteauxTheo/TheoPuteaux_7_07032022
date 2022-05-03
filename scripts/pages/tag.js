@@ -153,6 +153,12 @@ const tag = document.querySelector('.tag');
 function filterTag(){
 
     tag.innerHTML = ""
+    const sortIngredientsData = document.querySelector('.sort-ingredients-data')
+    const sortAppareilsData = document.querySelector('.sort-appareils-data');
+    const sortUstensilesData = document.querySelector('.sort-ustensiles-data');
+    sortIngredientsData.innerHTML = ""
+    sortAppareilsData.innerHTML = ""
+    sortUstensilesData.innerHTML = ""
 
     tagSelectedIngredients.forEach( tagIngredient => {
         displayTag(tagIngredient,"ingredient");
